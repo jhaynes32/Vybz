@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="profile-name">{{user.username}}</h1>
+  <section>
+    <ul class="tracks">
+      <h2>Submitted Artists</h2>
+
+      {% for artist in user.artists.all %}
+        <a href="{% url 'artist_detail' pk=artist.pk %}">
+          <li class="track">
+            <img src="{{artist.photo_url}}" alt="{{artist.name}}">
+            {{artist.name}}
+          </li>
+        </a>
+        <ul class="tracks">
+            <h2>Songs</h2>
+            {% for song in artist.songs.all %}
+            <li class="track">
+              {{song.title}}
+            </li>
+            {% endfor %}
+          </ul>
+      {% endfor %}
+
+    </ul>
+
+
+    <h3><a href="{% url 'friend_list' pk=user.pk %}">My Friends</a></h3> 
+  
+    <h3><a href="{% url 'their_friends' pk=user.pk %}">Their Friends</a></h3> 
+
+
+    <h3>All Users</h3>
+    <ul class="tracks">
+      {% for user in users %}
+      {% if user in friends %}
+        <a href="{% url 'user_profile' pk=user.pk %}">
+          <p class="profile-name"> {{user.username}} </p>
+        
+      {% else %}
+      <a href="{% url 'profile' %}">{{ user.username }} is not your friend.
+        <a href="{% url 'change_friends' pk=user.pk %}">+</a>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  
+    
+   
+
+
+    
+{% endblock %}

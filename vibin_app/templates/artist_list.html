@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="tracks">
+  <h2>
+    Artists
+    <a href="{% url 'artist_create' %}">+</a>
+  </h2>
+  {% for artist in artists %}
+  <a href="{% url 'artist_detail' pk=artist.pk %}">
+    <li class="track">
+      <img src="{{artist.photo_url}}" alt="{{artist.name}}">
+      {{ artist.name }}
+    </li>
+  </a>
+  {% endfor %}
+</ul>
+
+{% endblock %}

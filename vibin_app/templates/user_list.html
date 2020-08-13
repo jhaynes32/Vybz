@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="tracks">
+  {% for user in users %}
+  <a href="{% url 'user_profile' pk=user.pk %}">
+    <p class="profile-name"> {{user.username}} </p>
+  </a>
+  
+  {% endfor %}
+  
+</ul>
+
+{% endblock %}

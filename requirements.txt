@@ -1,0 +1,12 @@
+asgiref==3.2.10
+Django==3.0.8
+psycopg2==2.8.5
+pytz==2020.1
+sqlparse==0.3.1
+google-api-python-client==1.8.2
+google-auth-authlib==0.4.1
+youtube-dl==2020.3.24 
+
+
+
+# API Key AIzaSyB_XBuu7qmxWYBDMLlGc-cmgxt6ZoRuQII

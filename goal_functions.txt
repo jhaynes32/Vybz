@@ -1,0 +1,88 @@
+1. Friend Functions
+  a. Empty array - 'friends'
+  b. users = User.objects.get(id=pk)
+  c. display users friends
+  d. friend of friends
+
+
+2. Shell commands 
+>>> from django.contrib.auth.models import User
+>>> from vibin_app.models import Friend
+>>> user = User.objects.all()
+>>> user
+<QuerySet [<User: Yas>, <User: jhall>, <User: jh>]>
+>>> user = user[2]
+>>> Friend.objects.get(current_user=user)
+<Friend: Friend object (1)>
+>>> friend.users.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'friend' is not defined
+>>> friend.user.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'friend' is not defined
+>>> friend = Friend.objects.get(current_user)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'current_user' is not defined
+>>> friend = Friend.objects.get(current_user=user)
+>>> friend.users.all()
+<QuerySet [<User: Yas>]>
+>>> 
+
+
+
+3. NOTES
+
+<a href="{% url 'change_friends' pk=user.pk %}">+</a>
+
+
+
+<h3>Friends</h3> 
+    {% for friend in friends %}
+      <a href="{% url 'user_profile' pk=user.pk %}">
+        <h3>{{ friend.username }}</h3>
+      </a>
+      <a href="{% url 'change_friends' pk=friend.pk %}">
+        <button type="button" class="btn btn-default">Remove Friend</button>
+      </a>
+    {% endfor %}
+
+
+
+    , <a href="{% url 'user_profile' pk=user.pk %}">{{user.username}}</a> 
+
+
+
+     {% for friend in friends %}
+      <a href="{% url 'user_profile' pk=friend.pk %}">
+        <h3>{{ friend.username }}</h3>
+      </a>
+      <a href="{% url 'change_friends' pk=friend.pk %}">
+        <button type="button" class="btn btn-default">Remove Friend</button>
+      </a>
+    {% endfor %}
+
+
+
+
+
+    user list html:
+    <ul class="tracks">
+  {% for user in users %}
+  <a href="{% url 'user_profile' pk=user.pk %}">
+    <p class="profile-name"> {{user.username}} </p>
+  </a>
+  
+  {% endfor %}
+  
+</ul>
+
+
+
+
+4. Spotify web play token:
+
+BQAfW99b1vxzpiEJolHB41CCF_poA1pjO-YbnAxEVpCMPGveDZZLhvugHQp2AHKLMiw8fXfzQaToqfuROeWnbzx9W4ZjTcwAquK1hO8wOIn-csz_kfXboR84E6nu_BFQXXWgpd_kEPcxqtfG7t1uC5QzAo4ftE1B-LYQ
+

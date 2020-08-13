@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<section class="artist-header" style="background-image:url({{artist.photo_url}})">
+  <section class="artist-info">
+    <h2>
+      {{ artist.name }}
+      {% if artist.user == user %}
+      <a href="{% url 'artist_edit' pk=artist.pk %}">edit</a>
+      {% endif %}
+    </h2>
+    <h4>
+        {% if artist.user == user %}
+      <a href="{% url 'artist_delete' pk=artist.pk %}" class="delete">delete</a>
+        {% endif %}
+      {{artist.nationality}}
+    </h4>
+  </section>
+</section>
+
+<ul class="tracks">
+    <h2>Songs <a href="{% url 'song_create' pk=artist.pk %}">+</a></h2>
+  {% if artist.songs.all %}
+    {% for song in artist.songs.all %}
+    <a href="{{song.spotify_preview}}">
+      <li class="track">
+          {% if artist.user == user %}
+        <a class="delete" href="{% url 'song_delete' pk=artist.pk song_pk=song.pk %}">X</a>
+          {% endif %}
+        {{ song.title }}
+        <a class="song-edit" href="{% url 'song_edit' pk=artist.pk song_pk=song.pk %}">Edit</a>
+      </li>
+    </a>
+    {% endfor %}
+  {% else %}
+    <li class="track">
+      NO Songs Found
+    </li>
+  {% endif %}
+  </ul>
+
+{% endblock %}

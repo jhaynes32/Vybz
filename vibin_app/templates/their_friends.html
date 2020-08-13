@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{user.username}} Friend List</h1>
+<ul class="tracks"></ul>
+{% for their_friends in their_friends_list %}
+    <h3>{{ their_friends.username }}</h3>
+{% endfor %} 
+</ul>
+
+{% endblock %}

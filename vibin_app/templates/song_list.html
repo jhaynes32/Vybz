@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul class="tracks">
+  <h2>Songs </h2>
+{% for song in songs %}
+<a href="{{song.spotify_preview}}">
+  <li class="track">
+    {{ song.title }} By: {{song.artist.name}}
+    <a href="{% url 'song_edit' pk=song.artist.pk song_pk=song.pk %}" class="song-edit">Edit</a>
+  </li>
+</a>
+{% endfor %}
+</ul>
+
+{% endblock %}

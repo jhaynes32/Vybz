@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{{song.spotify_preview}}">
+<h2>{{ song.title }}</h2>
+</a>
+
+<h4> <a href="{% url 'artist_detail' pk=song.artist.pk %}">{{ song.artist }}</a> </h4>
+
+<h4>{{ song.genre }}</h4>
+<h4>{{ song.spotify_preview }}</h4>
+
+
+{% endblock %}
