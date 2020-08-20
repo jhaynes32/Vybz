@@ -16,8 +16,7 @@ import urllib
 
 # In[19]:
 
-client_id = 'adadae7a4bbe44adb7f22784876cc8d0'
-client_secret = '58280f70601341cd968fd7fa4df30dc0'
+
 
 class SpotifyAPI(object):
     access_token = None
