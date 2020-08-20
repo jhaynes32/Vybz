@@ -8,7 +8,7 @@ Utilizing postgresql, the app allows users to:
 4. Add song information and links (e.g. Youtube) for each artist
 5. Display user-added songs on user profiles 
 6. Spotfiy API access allows the addition of 20 random songs to your Spotify "Liked Songs" playlist. 
-7. Youtube API access works in conjunction with Spotify, allowing users to search through songs on any of their Youtube playlists and add the songs to their Spotify liked songs. (Run run.py file in terminal for cabaility) 
+7. Youtube API access works in conjunction with Spotify, allowing users to search through songs on any of their Youtube playlists and add the songs to their Spotify liked songs. (Run run.py file in terminal for capability) 
 
 
 
